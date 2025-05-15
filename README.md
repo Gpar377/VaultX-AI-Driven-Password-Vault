@@ -119,48 +119,47 @@ For the first run, ensure the emulator has Google Play Services if you're using 
 📂 Project Structure
 
 VaultX/
-├── android-app/ # Main app module
-│   ├── src/ 
-│       ├── main/ # Main source set
-│           ├── java/com/vaultx/ # Kotlin source files
-│               ├── data/ # Data layer - repositories, data sources
-│               ├── di/ # Dependency injection modules
-│               ├── domain/ # Domain layer - use cases, models
-│               ├── presentation/ # UI layer - screens, viewmodels
-│                   ├── common/ # Shared UI components
-│                   ├── dashboard/ # Dashboard screen
-│                   ├── settings/ # Settings screen
-│                   ├── vault/ # Vault entries screens
-│                   └── auth/ # Authentication screens
-│               ├── util/ # Utility classes
-│               └── VaultXApp.kt # Application class
-│           ├── res/ # Resources (layouts, drawables, values)
-│           └── AndroidManifest.xml # App manifest
-│       ├── test/ # Unit tests
-│       └── androidTest/ # Instrumentation tests
-│   ├── build.gradle.kts # Module build configuration
-│   └── proguard-rules.pro # ProGuard rules for app
-├── buildSrc/ # Gradle dependency management
-│   └── src/main/kotlin/
-│       ├── Dependencies.kt # Centralized dependency versions
-│       └── Plugins.kt # Gradle plugin configurations
-├── fastlane/ # CI/CD automation
-│   ├── Appfile # App identifiers
-│   ├── Fastfile # Lane definitions
-│   └── Pluginfile # Fastlane plugins
-├── gradle/wrapper/ # Gradle wrapper
-├── icons/ # App icons and branding
-├── screenshots/ # App screenshots for documentation
-├── .github/ # GitHub configuration
-│   └── workflows/ # GitHub Actions workflows
-│       ├── android_build.yml # Build workflow
-│       └── android_test.yml # Test workflow
-├── build.gradle.kts # Root build configuration
-├── settings.gradle.kts # Gradle settings
-├── gradle.properties # Gradle properties
-├── .gitignore # Git ignore rules
-├── LICENSE # Project license
-└── README.md # This documentation file
+├── android-app/
+│ ├── src/
+│ │ ├── main/
+│ │ │ ├── java/com/vaultx/
+│ │ │ │ ├── data/ # Repositories, data sources
+│ │ │ │ ├── di/ # Hilt modules
+│ │ │ │ ├── domain/ # Use cases, models
+│ │ │ │ ├── presentation/ # Screens, viewmodels
+│ │ │ │ │ ├── common/ # Shared UI components
+│ │ │ │ │ ├── dashboard/ # Dashboard screen
+│ │ │ │ │ ├── settings/ # Settings screen
+│ │ │ │ │ ├── vault/ # Vault entries
+│ │ │ │ │ └── auth/ # Auth screens
+│ │ │ │ ├── util/ # Utility classes
+│ │ │ │ └── VaultXApp.kt # Application class
+│ │ │ ├── res/ # Resources (layouts, drawables)
+│ │ │ └── AndroidManifest.xml
+│ │ ├── test/ # Unit tests
+│ │ └── androidTest/ # UI/instrumentation tests
+│ ├── build.gradle.kts
+│ └── proguard-rules.pro
+├── buildSrc/
+│ └── src/main/kotlin/
+│ ├── Dependencies.kt
+│ └── Plugins.kt
+├── fastlane/
+│ ├── Appfile
+│ ├── Fastfile
+│ └── Pluginfile
+├── gradle/wrapper/
+├── icons/
+├── screenshots/
+├── .github/workflows/
+│ ├── android_build.yml
+│ └── android_test.yml
+├── build.gradle.kts
+├── settings.gradle.kts
+├── gradle.properties
+├── .gitignore
+├── LICENSE
+└── README.md
 
 🛠️ Core Architecture
 VaultX is built using:
