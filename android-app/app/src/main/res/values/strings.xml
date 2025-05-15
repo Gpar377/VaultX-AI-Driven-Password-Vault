@@ -1,0 +1,169 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+  <!-- Common -->
+  <string name="app_name">VaultX</string>
+  <string name="text_empty"/>
+  <string name="text_password">Password</string>
+  <string name="text_continue">Continue</string>
+  <string name="text_password_is_empty">Password is empty</string>
+  <string name="text_title">Title</string>
+  <string name="text_enter_title">Enter title</string>
+  <string name="text_title_is_empty">Title is empty</string>
+  <string name="text_save">Save</string>
+  <string name="text_confirmation">Confirmation</string>
+  <string name="text_yes">YES</string>
+  <string name="text_continue_caps">CONTINUE</string>
+  <string name="text_confirm">CONFIRM</string>
+  <string name="text_cancel" tools:ignore="ButtonCase">CANCEL</string>
+  <string name="text_delete_password_question">Do you want to delete %s?</string>
+  <string name="text_delete_password_question_prefix">Do you want to delete</string>
+  <string name="text_delete">DELETE</string>
+  <string name="text_clipboard_label_title">title</string>
+  <string name="text_clipboard_label_username">username</string>
+  <string name="text_clipboard_label_url">url</string>
+  <string name="text_clipboard_label_password">password</string>
+  <string name="text_clipboard_label_notes">notes</string>
+  <string name="text_clipboard_label_text">text</string>
+
+  <!-- Initial -->
+
+  <!-- Login -->
+  <string name="text_enter_with_biometrics">Enter with biometrics</string>
+  <string name="text_biometrics_tap_here">Tap here to enter with biometrics</string>
+  <string name="text_biometrics_error_not_allowed">You haven\'t logged in with password for a while. Biometrics is disabled until you enter with password</string>
+  <string name="text_biometrics_error_lockout">Too many failed attempts. Try using biometrics later</string>
+  <string name="text_biometrics_error_lockout_permanent">Failed to initialize biometrics. Enter with password instead</string>
+  <string name="text_biometrics_error_other">Unknown error. Enter with password instead</string>
+
+  <!-- Master password -->
+  <string name="text_password_is_incorrect">Password is incorrect</string>
+  <string name="text_password_is_too_weak">Password is too weak</string>
+  <string name="text_passwords_dont_match">Passwords don\'t match</string>
+  <string name="text_password_is_the_same_as_current">Password is the same as current one</string>
+  <string name="text_confirmation_message">Are you sure you want to change master password? This action cannot
+    be undone and the old password will not work anymore.
+  </string>
+  <string name="text_change_password">CHANGE PASSWORD</string>
+  <string name="text_continue_with_weak_password">CONTINUE WITH WEAK PASSWORD</string>
+  <string name="text_password_should_be_strong">
+    Your password is too easy to guess, it is dangerous to use. Try adding more numbers, letters and other symbols to make password more secure.
+  </string>
+
+  <!-- Creating password -->
+  <string name="text_edit_password">Edit password</string>
+  <string name="text_generate_or_type_password">Generate or type password here</string>
+  <string name="text_uppercase_symbols">Uppercase symbols</string>
+  <string name="text_numbers">Numbers</string>
+  <string name="text_special_symbols">Special symbols</string>
+  <string name="text_password_length">Length: %1$d</string>
+  <string name="text_generate_password">Generate password</string>
+  <string name="text_saving_password">Saving password</string>
+  <string name="text_weak">Weak</string>
+  <string name="text_medium">Medium</string>
+  <string name="text_strong">Strong</string>
+  <string name="text_secure">Secure</string>
+
+  <!-- Main list -->
+  <string name="text_favorites">Favorites</string>
+  <string name="text_passwords">Passwords</string>
+  <string name="text_notes">Notes</string>
+  <string name="text_search">Search…</string>
+  <string name="text_no_matching_entries">No matching entries</string>
+  <string name="text_new_entry">New Entry</string>
+  <string name="text_new_password">New password</string>
+  <string name="text_new_note">New note</string>
+  <string name="text_no_entries">Nothing yet</string>
+  <string name="text_click_plus">Click on the + button below to           create/save new entry</string>
+  <string name="text_done">Done</string>
+  <string name="text_export_successful">Exported passwords successfully!</string>
+  <string name="text_export_share">Share</string>
+  <string name="text_export_share_file">SHARE FILE</string>
+  <string name="text_choose_entry_type">" type"</string>
+
+  <!-- Password info -->
+  <string name="text_username">Username</string>
+  <string name="text_url">Url</string>
+  <string name="text_enter_url">Enter url</string>
+  <string name="text_enter_username">Enter username</string>
+  <string name="text_email">Email</string>
+  <string name="text_password_stub">•••••••••••••••••••</string>
+  <string name="text_add_notes">Enter notes</string>
+  <string name="text_delete_password">Delete password</string>
+  <string name="text_username_copied">Username successfully copied</string>
+  <string name="text_password_copied">Password successfully copied</string>
+  <string name="text_url_copied">Url successfully copied</string>
+  <string name="text_notes_copied">Notes successfully copied</string>
+  <string name="text_browser_not_found">No browser found on the device</string>
+
+  <!-- Note -->
+  <string name="text_note">Note</string>
+  <string name="text_enter_text">Enter text</string>
+  <string name="text_text">Text</string>
+  <string name="text_note_created">Note entry created</string>
+  <string name="text_delete_note">Delete note</string>
+  <string name="text_title_copied">Title successfully copied</string>
+  <string name="text_text_copied">Text successfully copied</string>
+
+  <!-- Importing -->
+  <string name="text_import_passwords">Import passwords</string>
+  <string name="text_passwords_file">Passwords file</string>
+  <string name="text_key_file">Key file (optional)</string>
+  <string name="text_key_file_stub">Select key file</string>
+  <string name="text_confirm_import_passwords_message">Importing passwords will cause all your current content
+    to be replaced by contents of the file you will choose. If you want to preserve your current passwords,
+    you should export them before you import new ones. Are you sure you want to continue?
+  </string>
+  <string name="text_error">Error</string>
+  <string name="text_error_import_message">Import is unsuccessful. Either you selected the wrong file(s) or
+    the entered password is incorrect.
+  </string>
+  <string name="text_ok">OK</string>
+
+  <!-- Exporting -->
+  <string name="text_export_passwords">Export passwords</string>
+  <string name="text_export">Export</string>
+
+  <!-- Enter master password dialog -->
+  <string name="text_enter_master_password_to_continue">Enter master password to continue</string>
+  <string name="text_enter_password_import_from_initial">Enter password</string>
+  <string name="text_enter_password_import_from_main_list">Enter password for decryption</string>
+
+  <!-- Settings -->
+  <string name="text_settings">Settings</string>
+  <string name="text_change_master_password_description">Change the password you use to enter the app</string>
+  <string name="text_master_password_changed">Vault key successfully changed</string>
+  <string name="text_master_password_changed_biometrics_dialog_title">Biometrics disabled</string>
+  <string name="text_master_password_changed_biometrics_dialog_message">Vault key successfully changed, but biometrics was disabled, because it used old password. If you want, you can enable it back right now</string>
+  <string name="text_show_passwords_usernames">Show usernames</string>
+  <string name="text_show_password_usernames_description">Show usernames in password entries</string>
+  <string name="text_biometrics_title">Biometric unlock</string>
+  <string name="text_biometrics_enable">ENABLE</string>
+  <string name="text_biometrics_description">Enter the app with fingerprint or other biometric data</string>
+  <string name="text_biometrics_snackbar_error_lockout">Too many attempts. Try again later</string>
+  <string name="text_biometrics_snackbar_error_lockout_permanent">An error occurred. Re-login with biometrics into your device and try again</string>
+  <string name="text_biometrics_snackbar_error">Unknown error. Try again later</string>
+  <string name="text_biometrics_set_up">Set up biometric unlock</string>
+  <string name="text_biometrics_cancel">Cancel</string>
+  <string name="text_biometrics_enabled">Biometrics enabled</string>
+  <string name="text_storage_backup_title">Storage backup</string>
+  <string name="text_storage_backup_description">Automatically backup passwords to the file system</string>
+  <string name="text_storage_backup_enabled">Storage backup enabled</string>
+  <string name="text_storage_backup_folder_title">Backup folder</string>
+  <string name="text_storage_backup_folder_none_selected">None selected</string>
+  <string name="text_storage_backup_backup_now">Back up now</string>
+  <string name="text_storage_backup_latest_backup_prefix">Last backup: %s</string>
+  <string name="text_storage_backup_last_backup_never">Last backup: never</string>
+  <string name="text_storage_backup_performed">Successfully backed up</string>
+  <string name="text_images_loading">Show password icons</string>
+  <string name="text_images_loading_description">Automatically download icons for password entries if available</string>
+  <string name="text_clear_images_cache">Clear images cache</string>
+  <string name="text_clear_images_cache_description">Clear all cached images of password entries</string>
+  <string name="text_clear_images_cache_cleared">Images cache successfully cleared</string>
+  <string name="text_welcome_description">Your AI-Driven Password Vault</string>
+  <string name="text_create_new_encrypted_vault">Set Up New Vault</string>
+  <string name="text_import_existing_vault">Bring in Existing Data</string>
+  <string name="text_change_master_password">Change Your Vault Key</string>
+  <string name="text_create_master_password">Set Up Your Vault Key</string>
+  <string name="text_enter_password">Enter Your Vault Key</string>
+  <string name="text_repeat_password">Confirm Vault Key</string>
+</resources>
