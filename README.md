@@ -9,18 +9,35 @@
 
 VaultX is a comprehensive, secure Android application designed to help users safeguard their sensitive information through advanced encryption and AI-driven features. Built with modern Android development practices, VaultX offers an intuitive user experience via Jetpack Compose while maintaining industry-standard security protocols to protect your passwords, personal notes, and credentials.
 
-## 📱 Screenshots
+## 📸 App Screenshots
 
-https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/blob/main/Start.jpg?raw=true
-https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/blob/main/Set%20Key.jpg?raw=true
-https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/blob/main/Weak%20Key.jpg?raw=true
-https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/blob/main/Strong%20Key.jpg?raw=true
-https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/blob/main/Secure%20Key.jpg?raw=true
-https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/blob/main/Initial%20Page.jpg?raw=true
-https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/blob/main/Password%20Page.jpg?raw=true
-https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/blob/main/Features.jpg?raw=true
-https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/blob/main/Setting%20Page.jpg?raw=true
+### 🔐 Start Page
 ![Start](https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/blob/main/Start.jpg?raw=true)
+
+### 🔑 Set Master Key
+![Set Key](https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/blob/main/Set%20Key.jpg?raw=true)
+
+### ⚠️ Weak Key Warning
+![Weak Key](https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/blob/main/Weak%20Key.jpg?raw=true)
+
+### ✅ Strong Key Confirmation
+![Strong Key](https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/blob/main/Strong%20Key.jpg?raw=true)
+
+### 🔒 AES-256 Encrypted Secure Key
+![Secure Key](https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/blob/main/Secure%20Key.jpg?raw=true)
+
+### 🏠 Home / Initial Page
+![Initial Page](https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/blob/main/Initial%20Page.jpg?raw=true)
+
+### 📂 Password Storage Page
+![Password Page](https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/blob/main/Password%20Page.jpg?raw=true)
+
+### ✨ Features Highlight
+![Features](https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/blob/main/Features.jpg?raw=true)
+
+### ⚙️ Settings Page
+![Settings Page](https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/blob/main/Setting%20Page.jpg?raw=true)
+
 
 ## 🌟 Key Features
 
