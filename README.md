@@ -11,7 +11,16 @@ VaultX is a comprehensive, secure Android application designed to help users saf
 
 ## 📱 Screenshots
 
-*Add your app screenshots here*
+https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/blob/main/Start.jpg?raw=true
+https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/blob/main/Set%20Key.jpg?raw=true
+https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/blob/main/Weak%20Key.jpg?raw=true
+https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/blob/main/Strong%20Key.jpg?raw=true
+https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/blob/main/Secure%20Key.jpg?raw=true
+https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/blob/main/Initial%20Page.jpg?raw=true
+https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/blob/main/Password%20Page.jpg?raw=true
+https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/blob/main/Features.jpg?raw=true
+https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/blob/main/Setting%20Page.jpg?raw=true
+
 
 ## 🌟 Key Features
 
@@ -70,6 +79,7 @@ Before you begin, ensure you have the following installed:
 
 - **Android Studio**: Latest version from [developer.android.com](https://developer.android.com)
 - **Java 17**: JDK 17 or higher
+- **Gradle**: 8.9.X version
 - **Android SDK**: API Level 33 or higher
 - **Git**: For version control
 
@@ -94,11 +104,7 @@ Before you begin, ensure you have the following installed:
 
 ### Configuration
 
-1. **API Keys** (if applicable)
-   - Add any required API keys to `local.properties`
-   - Follow the format: `API_KEY=your_key_here`
-
-2. **Build Variants**
+1. **Build Variants**
    - Debug: For development with debugging enabled
    - Release: Optimized build for production
 
@@ -215,23 +221,6 @@ Use GitHub Issues to report bugs. Please include:
 - Expected vs actual behavior
 - Screenshots or logs if applicable
 
-## 🗺️ Roadmap
-
-### Upcoming Features
-
-- [ ] **Cloud Sync**: Secure synchronization across devices
-- [ ] **Browser Extension**: Auto-fill passwords in web browsers
-- [ ] **Advanced Analytics**: Password health dashboard with AI insights
-- [ ] **Secure File Storage**: Encrypt and store sensitive documents
-- [ ] **Team Sharing**: Securely share entries with trusted contacts
-- [ ] **Multi-Factor Authentication**: Additional security layers
-- [ ] **Breach Monitoring**: Real-time breach detection and alerts
-
-### Version History
-
-- **v1.0.0**: Initial release with core password management
-- **v1.1.0**: AI-driven features and enhanced security
-- **v1.2.0**: UI improvements and accessibility features
 
 ## 📄 License
 
