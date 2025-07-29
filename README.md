@@ -1,259 +1,265 @@
-VaultX 🔐
-VaultX is a comprehensive, secure Android application designed to help 
-users safeguard their sensitive information through advanced encryption. 
-Built with modern Android development practices, VaultX offers an intuitive 
-user experience via Jetpack Compose while maintaining industry-standard security 
-protocols to protect your passwords, personal notes, and credentials.
+# VaultX 🔐
 
-🌟 Features
+**AI-Driven Password Vault - Your Digital Security Companion**
 
-🔐 Enterprise-Grade Encryption
+[![Android](https://img.shields.io/badge/Platform-Android-brightgreen.svg)](https://android.com)
+[![Kotlin](https://img.shields.io/badge/Language-Kotlin-blue.svg)](https://kotlinlang.org)
+[![Jetpack Compose](https://img.shields.io/badge/UI-Jetpack%20Compose-orange.svg)](https://developer.android.com/jetpack/compose)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-Data secured using Android Keystore System
-AES-256 encryption for all stored information
-Zero-knowledge architecture ensuring only you can access your data
-EncryptedSharedPreferences implementation for secure storage
-All data saved locally on your device, never on remote servers
+VaultX is a comprehensive, secure Android application designed to help users safeguard their sensitive information through advanced encryption and AI-driven features. Built with modern Android development practices, VaultX offers an intuitive user experience via Jetpack Compose while maintaining industry-standard security protocols to protect your passwords, personal notes, and credentials.
 
+## 📱 Screenshots
 
-📱 Modern UI/UX with Jetpack Compose
+*Add your app screenshots here*
 
-Fluid animations and transitions
-Responsive layouts that adapt to any screen size
-Dark/Light theme support with Material You dynamic colors
-Accessibility features for all users
+## 🌟 Key Features
 
+### 🔐 Enterprise-Grade Security
+- **AES-256 Encryption**: Data secured using Android Keystore System
+- **Zero-Knowledge Architecture**: Only you can access your data
+- **Local Storage**: All data saved locally on your device, never on remote servers
+- **Biometric Authentication**: Fingerprint and face recognition support
+- **Auto-Lock**: Configurable timeout for enhanced security
 
-🧭 Intuitive Navigation & User Experience
+### 🧠 AI-Driven Intelligence
+- **Password Strength Analysis**: AI-powered assessment of password security
+- **Smart Password Generator**: Intelligent password creation with customizable parameters
+- **Duplicate Detection**: Automatically identifies and alerts about duplicate passwords
+- **Security Recommendations**: AI-driven suggestions for improving your security posture
 
-Simple onboarding process for new users
-Categorized vault entries for better organization
-Powerful search functionality
-Customizable dashboard with quick-access tiles
+### 📱 Modern User Experience
+- **Jetpack Compose UI**: Fluid animations and responsive design
+- **Material Design 3**: Modern aesthetic with dynamic theming
+- **Dark/Light Theme**: Automatic theme switching based on system preferences
+- **Accessibility**: Full support for accessibility features
+- **Intuitive Navigation**: Clean, organized interface for effortless use
 
+### 🛡️ Advanced Password Management
+- **Secure Password Generator**: Customizable parameters for strong passwords
+- **Password Health Dashboard**: Monitor and improve your password security
+- **Expiration Reminders**: Get notified when passwords need updating
+- **Categorized Storage**: Organize entries by type or custom categories
+- **Powerful Search**: Find entries quickly with intelligent search
 
-🔍 Advanced Password Management
+### 📊 Data Management
+- **Import/Export**: Secure backup and restore functionality
+- **Custom Fields**: Add personalized fields to entries
+- **Rich Text Notes**: Secure notes with formatting support
+- **Tagging System**: Organize entries with custom tags
 
-Password strength analyzer
-Secure password generator with customizable parameters
-Duplicate password detection
-Password expiration reminders
+## 🔧 Technical Stack
 
+| Component | Technology |
+|-----------|------------|
+| **Architecture** | MVVM with Clean Architecture |
+| **UI Framework** | Jetpack Compose + Material Design 3 |
+| **Language** | Kotlin |
+| **Database** | Room with encryption layer |
+| **Security** | Android Keystore, EncryptedSharedPreferences |
+| **Dependency Injection** | Hilt |
+| **State Management** | StateFlow, SharedFlow |
+| **Authentication** | Biometric APIs |
+| **Testing** | JUnit, Espresso, Compose UI Testing |
 
-🔔 Smart Notifications & Reminders
+## 🚀 Getting Started
 
-Scheduled security audits
-Password rotation reminders
-Breach detection alerts (planned feature)
-Auto-lock timers for enhanced security
+### Prerequisites
 
+Before you begin, ensure you have the following installed:
 
-🛡️ Enhanced Security Features
+- **Android Studio**: Latest version from [developer.android.com](https://developer.android.com)
+- **Java 17**: JDK 17 or higher
+- **Android SDK**: API Level 33 or higher
+- **Git**: For version control
 
-Biometric authentication support (fingerprint/face)
-PIN/pattern backup authentication
-Automatic clipboard clearing
-Failed authentication attempt logging
-Self-destruct option for high-security scenarios
+### Installation
 
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault.git
+   cd VaultX-AI-Driven-Password-Vault
+   ```
 
-📊 Data Management
+2. **Open in Android Studio**
+   - Launch Android Studio
+   - Go to `File > Open`
+   - Navigate to the project directory and open it
+   - Wait for Gradle sync to complete
 
-Import/export functionality (encrypted)
-Categorization and tagging system
-Custom fields for entries
-Secure notes with rich text formatting
+3. **Build and Run**
+   - Select a device (emulator or physical device)
+   - Click `Run > Run 'android-app'` or press `Shift + F10`
+   - For first run, ensure your emulator has Google Play Services
 
+### Configuration
 
-🧪 Scalable Architecture
+1. **API Keys** (if applicable)
+   - Add any required API keys to `local.properties`
+   - Follow the format: `API_KEY=your_key_here`
 
-Ready for future cloud sync capabilities
-Prepared for multi-device deployment
-Modular design for easy feature additions
+2. **Build Variants**
+   - Debug: For development with debugging enabled
+   - Release: Optimized build for production
 
+## 📂 Project Structure
 
-
-
-🔧 Technical Details
-VaultX is built using:
-
-Architecture: MVVM (Model-View-ViewModel) with Clean Architecture principles
-UI Framework: Jetpack Compose with Material Design 3
-State Management: StateFlow and SharedFlow for reactive programming
-Dependency Injection: Hilt for clean dependency management
-Storage: Room Database with encryption layer
-Security: Android Keystore, EncryptedSharedPreferences, Biometric APIs
-Testing: JUnit, Espresso, and Compose UI testing
-
-
-🧰 Requirements
-To use VaultX, simply download and install the application from the Google Play Store.
-For developers who want to build the project locally, you'll need:
-
-Android Studio: Download and install the latest version from developer.android.com
-Java 17: Install Java Development Kit (JDK) 17 or higher
-Gradle 8.9: The project uses Gradle 8.9 (managed automatically by the Gradle wrapper)
-Android SDK: Android API Level 33 or higher (manageable through Android Studio)
-Git: For version control and cloning the repository
-
-That's it! Once you have these tools installed, you can clone the repository and open it in Android Studio to start working with the project.
-
-🚀 Installation & Setup
-1. Clone the Repository
-   bashgit clone https://github.com/ishashwatthakur/VaultX.git
-   cd VaultX
-2. Open the Project
-
-Launch Android Studio.
-Go to File > Open.
-Navigate to the VaultX/ directory and open it.
-Let Android Studio sync the Gradle files automatically.
-
-3. Build & Run
-
-Choose a device (emulator or connected physical device).
-Click Run > Run 'android-app' or press Shift + F10.
-For the first run, ensure the emulator has Google Play Services if you're using Google APIs.
-
-
-📂 Project Structure
-
+```
 VaultX/
 ├── android-app/
-│ ├── src/
-│ │ ├── main/
-│ │ │ ├── java/com/vaultx/
-│ │ │ │ ├── data/ # Repositories, data sources
-│ │ │ │ ├── di/ # Hilt modules
-│ │ │ │ ├── domain/ # Use cases, models
-│ │ │ │ ├── presentation/ # Screens, viewmodels
-│ │ │ │ │ ├── common/ # Shared UI components
-│ │ │ │ │ ├── dashboard/ # Dashboard screen
-│ │ │ │ │ ├── settings/ # Settings screen
-│ │ │ │ │ ├── vault/ # Vault entries
-│ │ │ │ │ └── auth/ # Auth screens
-│ │ │ │ ├── util/ # Utility classes
-│ │ │ │ └── VaultXApp.kt # Application class
-│ │ │ ├── res/ # Resources (layouts, drawables)
-│ │ │ └── AndroidManifest.xml
-│ │ ├── test/ # Unit tests
-│ │ └── androidTest/ # UI/instrumentation tests
-│ ├── build.gradle.kts
-│ └── proguard-rules.pro
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/com/vaultx/
+│   │   │   │   ├── data/          # Repositories, data sources
+│   │   │   │   ├── di/            # Hilt modules
+│   │   │   │   ├── domain/        # Use cases, models
+│   │   │   │   ├── presentation/  # Screens, viewmodels
+│   │   │   │   │   ├── common/    # Shared UI components
+│   │   │   │   │   ├── dashboard/ # Dashboard screen
+│   │   │   │   │   ├── settings/  # Settings screen
+│   │   │   │   │   ├── vault/     # Vault entries
+│   │   │   │   │   └── auth/      # Auth screens
+│   │   │   │   ├── util/          # Utility classes
+│   │   │   │   └── VaultXApp.kt   # Application class
+│   │   │   ├── res/               # Resources (layouts, drawables)
+│   │   │   └── AndroidManifest.xml
+│   │   ├── test/                  # Unit tests
+│   │   └── androidTest/           # UI/instrumentation tests
+│   ├── build.gradle.kts
+│   └── proguard-rules.pro
 ├── buildSrc/
-│ └── src/main/kotlin/
-│ ├── Dependencies.kt
-│ └── Plugins.kt
+│   └── src/main/kotlin/
+│       ├── Dependencies.kt
+│       └── Plugins.kt
 ├── fastlane/
-│ ├── Appfile
-│ ├── Fastfile
-│ └── Pluginfile
+│   ├── Appfile
+│   ├── Fastfile
+│   └── Pluginfile
 ├── gradle/wrapper/
 ├── icons/
 ├── screenshots/
 ├── .github/workflows/
-│ ├── android_build.yml
-│ └── android_test.yml
+│   ├── android_build.yml
+│   └── android_test.yml
 ├── build.gradle.kts
 ├── settings.gradle.kts
 ├── gradle.properties
 ├── .gitignore
 ├── LICENSE
 └── README.md
+```
 
-🛠️ Core Architecture
-VaultX is built using:
+## 🧪 Testing
 
-Architecture: MVVM (Model-View-ViewModel) with Clean Architecture principles
-UI Framework: Jetpack Compose with Material Design 3
-State Management: StateFlow and SharedFlow for reactive programming
-Dependency Injection: Hilt for clean dependency management
-Storage: Room Database with encryption layer
-Security: Android Keystore, EncryptedSharedPreferences, Biometric APIs
+### Running Tests
 
+```bash
+# Unit tests
+./gradlew test
 
-📱 App Screens
-Main Screens
+# Integration tests
+./gradlew connectedAndroidTest
 
-Authentication
-Biometric login
-PIN/password fallback
-First-time setup
+# UI tests
+./gradlew connectedDebugAndroidTest
+```
 
+### Test Coverage
 
-Dashboard
+- **Unit Tests**: Business logic and data layer
+- **Integration Tests**: Database operations and repositories  
+- **UI Tests**: User interaction flows and screen navigation
 
-Quick access to frequently used entries
-Security status overview
-Recent entries
+## 🔒 Security Features
 
+### Encryption
+- **AES-256**: Industry-standard encryption for all stored data
+- **Android Keystore**: Hardware-backed key storage when available
+- **Key Derivation**: PBKDF2 for password-based encryption
 
-Vault
+### Authentication
+- **Biometric**: Fingerprint and face recognition
+- **PIN/Pattern**: Fallback authentication methods
+- **Auto-Lock**: Configurable timeout periods
 
-Categorized list of entries
-Search and filter functionality
-Add/edit entries
+### Privacy
+- **Local Storage**: No data sent to external servers
+- **Memory Protection**: Sensitive data cleared from memory
+- **Screen Protection**: Content hidden in recent apps
 
+## 🤝 Contributing
 
-Entry Details
-
-View and edit entry information
-Copy sensitive information
-Share securely (when applicable)
-
-
-Settings
-
-Security configurations
-Appearance options
-Backup & restore
-Advanced settings
-
-
-🤝 Contributing
 We welcome contributions to VaultX! Here's how you can help:
-Code Contributions
 
-Fork the repository
-Create a new branch (git checkout -b feature/YourFeature)
-Make your changes
-Run tests (./gradlew test)
-Commit your changes (git commit -m 'Add your feature')
-Push to the branch (git push origin feature/YourFeature)
-Open a Pull Request
+### Code Contributions
 
-Contribution Guidelines
+1. **Fork** the repository
+2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
+3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
+4. **Push** to the branch (`git push origin feature/amazing-feature`)
+5. **Open** a Pull Request
 
-Follow the existing code style and architecture
-Add unit tests for new functionality
-Update documentation when appropriate
-Keep PRs focused on a single feature or bug fix
+### Guidelines
 
-Bug Reports & Feature Requests
+- Follow the existing code style and architecture
+- Add unit tests for new functionality
+- Update documentation when appropriate
+- Keep PRs focused on a single feature or bug fix
+- Ensure all tests pass before submitting
 
-Use the GitHub Issues tracker to report bugs
-Clearly describe the issue, including steps to reproduce
-For feature requests, explain the use case and benefits
+### Bug Reports
 
+Use GitHub Issues to report bugs. Please include:
+- Device information and Android version
+- Steps to reproduce the issue
+- Expected vs actual behavior
+- Screenshots or logs if applicable
 
-📚 Documentation
-Complete documentation is available in the docs/ directory, including:
+## 🗺️ Roadmap
 
-Architecture overview
-Security model details
-UI/UX guidelines
-API documentation (if applicable)
+### Upcoming Features
 
+- [ ] **Cloud Sync**: Secure synchronization across devices
+- [ ] **Browser Extension**: Auto-fill passwords in web browsers
+- [ ] **Advanced Analytics**: Password health dashboard with AI insights
+- [ ] **Secure File Storage**: Encrypt and store sensitive documents
+- [ ] **Team Sharing**: Securely share entries with trusted contacts
+- [ ] **Multi-Factor Authentication**: Additional security layers
+- [ ] **Breach Monitoring**: Real-time breach detection and alerts
 
-🔮 Roadmap
-Future plans for VaultX include:
+### Version History
 
-Cloud Sync: Secure synchronization across devices
-Browser Extension: Auto-fill passwords in web browsers
-Password Health Dashboard: Advanced analytics on password security
-Secure File Storage: Encrypt and store sensitive documents
-Team Sharing: Securely share entries with trusted contacts
-Advanced Authentication: Multi-factor authentication options
+- **v1.0.0**: Initial release with core password management
+- **v1.1.0**: AI-driven features and enhanced security
+- **v1.2.0**: UI improvements and accessibility features
 
+## 📄 License
 
-Made with ❤️ by developers, for people who value privacy and security
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📞 Support
+
+- **Issues**: [GitHub Issues](https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/ishashwatthakur/VaultX-AI-Driven-Password-Vault/discussions)
+- **Email**: [Contact Developer](mailto:your-email@domain.com)
+
+## 🙏 Acknowledgments
+
+- Android development community for excellent resources
+- Material Design team for design guidelines
+- Security researchers for encryption best practices
+- Open source libraries that made this project possible
+
+## ⭐ Show Your Support
+
+If you find VaultX helpful, please consider:
+- ⭐ Starring the repository
+- 🐛 Reporting bugs
+- 💡 Suggesting new features
+- 🤝 Contributing to the codebase
+
+---
+
+**Made with ❤️ for people who value privacy and security**
+
+*VaultX - Your Digital Security Companion*
