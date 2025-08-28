@@ -24,6 +24,7 @@ sealed interface CreatingPasswordUiEvent : CreatingPasswordEvent {
   object OnToggledSpecialSymbols : CreatingPasswordUiEvent
   class OnPasswordLengthChanged(val length: Int) : CreatingPasswordUiEvent
   object OnGeneratePasswordClicked : CreatingPasswordUiEvent
+  object OnGenerateAIPasswordClicked : CreatingPasswordUiEvent
   object OnSavePasswordClicked : CreatingPasswordUiEvent
   object OnBackPressed : CreatingPasswordUiEvent
 }
@@ -35,6 +36,7 @@ sealed interface CreatingPasswordCommand {
     val length: Int,
     val characteristics: EnumSet<PasswordCharacteristic>
   ) : CreatingPasswordCommand
+  class GenerateAIPassword(val length: Int) : CreatingPasswordCommand
   
   class SendPasswordChangeEvent(val password: Password) : CreatingPasswordCommand
   object GoBack : CreatingPasswordCommand
