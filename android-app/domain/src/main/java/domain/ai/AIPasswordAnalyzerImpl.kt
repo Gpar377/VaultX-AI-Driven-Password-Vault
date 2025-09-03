@@ -1,171 +1,219 @@
 package domain.ai
 
 import domain.Password
-import domain.PasswordStrength
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlin.math.log2
-import kotlin.math.min
 import kotlin.math.pow
 
 class AIPasswordAnalyzerImpl : AIPasswordAnalyzer {
-    
-    private val commonPasswords = setOf("password", "123456", "password123", "admin", "qwerty", "letmein")
-    private val keyboardPatterns = listOf("qwerty", "asdf", "zxcv", "123456", "098765")
-    
-    override suspend fun analyzePassword(password: Password): AIPasswordAnalysis = withContext(Dispatchers.Default) {
-        val pwd = password.stringData
-        val vulnerabilities = detectVulnerabilities(pwd)
-        val patterns = detectPatterns(pwd)
-        val entropy = calculateEntropy(pwd)
-        val predictability = calculatePredictability(pwd)
-        val securityScore = calculateSecurityScore(pwd, vulnerabilities, entropy, predictability)
-        val aiStrength = determineAIStrength(securityScore)
-        val recommendations = generateRecommendations(pwd, vulnerabilities, patterns)
-        
-        AIPasswordAnalysis(securityScore, aiStrength, vulnerabilities, patterns, entropy, predictability, recommendations)
+
+    private val commonPasswords = setOf(
+        "password", "123456", "password123", "admin", "qwerty", "letmein",
+        "welcome", "monkey", "dragon", "master", "shadow", "football"
+    )
+
+    private val keyboardPatterns = listOf(
+        "qwerty", "asdf", "zxcv", "123456", "098765"
+    )
+
+    override suspend fun analyzePassword(password: String): AIPasswordAnalysis = withContext(Dispatchers.Default) {
+        val vulnerabilities = detectVulnerabilities(password)
+        val patterns = detectPatterns(listOf(password))
+        val entropy = calculateEntropy(password)
+        val securityScore = calculateSecurityScore(password, vulnerabilities, entropy)
+        val recommendations = generateRecommendations(vulnerabilities, securityScore)
+        val crackTime = estimateCrackTime(entropy)
+
+        AIPasswordAnalysis(
+            securityScore = securityScore,
+            vulnerabilities = vulnerabilities,
+            patterns = patterns,
+            recommendations = recommendations,
+            entropy = entropy,
+            estimatedCrackTime = crackTime
+        )
     }
-    
-    override suspend fun getSecurityRecommendations(password: Password): List<SecurityRecommendation> = 
-        analyzePassword(password).recommendations
-    
-    override suspend fun detectThreatPatterns(password: Password): List<ThreatPattern> = withContext(Dispatchers.Default) {
-        val pwd = password.stringData
-        val threats = mutableListOf<ThreatPattern>()
-        
-        if (pwd.length < 8) {
-            threats.add(ThreatPattern(ThreatType.BRUTE_FORCE_VULNERABLE, 0.9f, "Short password vulnerable to brute force", RiskLevel.HIGH))
-        }
-        
-        if (commonPasswords.any { pwd.lowercase().contains(it) }) {
-            threats.add(ThreatPattern(ThreatType.DICTIONARY_ATTACK, 0.85f, "Contains common dictionary words", RiskLevel.HIGH))
-        }
-        
-        threats
-    }
-    
-    override suspend fun generateSmartPassword(basePassword: Password?, length: Int): Password = withContext(Dispatchers.Default) {
+
+    override suspend fun generateSecurePassword(length: Int): Password = withContext(Dispatchers.Default) {
         val chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-="
-        val random = kotlin.random.Random.Default
-        
-        val generated = buildString {
-            repeat(length) { append(chars[random.nextInt(chars.length)]) }
+        val generatedString = buildString {
+            repeat(length) { append(chars.random()) }
         }
         
-        Password(optimizeGeneratedPassword(generated))
+        // FIXED: Use Password.create() to handle encryption internally
+        Password.create(optimizeGeneratedPassword(generatedString))
     }
-    
-    private fun detectVulnerabilities(password: String): List<Vulnerability> {
-        val vulnerabilities = mutableListOf<Vulnerability>()
-        
-        if (commonPasswords.any { password.lowercase().contains(it) }) {
-            vulnerabilities.add(Vulnerability(VulnerabilityType.DICTIONARY_WORD, VulnerabilitySeverity.HIGH, 
-                "Contains common dictionary words", "Vulnerable to dictionary attacks"))
-        }
-        
-        keyboardPatterns.forEach { pattern ->
-            if (password.lowercase().contains(pattern)) {
-                vulnerabilities.add(Vulnerability(VulnerabilityType.KEYBOARD_WALK, VulnerabilitySeverity.MEDIUM,
-                    "Contains keyboard pattern: $pattern", "Predictable pattern reduces security"))
+
+    override suspend fun detectPatterns(passwords: List<String>): List<SecurityPattern> = withContext(Dispatchers.Default) {
+        passwords.flatMap { password ->
+            mutableListOf<SecurityPattern>().apply {
+                keyboardPatterns.forEach { pattern ->
+                    if (password.lowercase().contains(pattern)) {
+                        add(SecurityPattern(
+                            type = PatternType.KEYBOARD_WALK,
+                            confidence = 0.9,
+                            description = "Contains keyboard pattern: $pattern"
+                        ))
+                    }
+                }
+
+                if (hasRepeatedChars(password)) {
+                    add(SecurityPattern(
+                        type = PatternType.REPETITION,
+                        confidence = 0.8,
+                        description = "Contains repeated character sequences"
+                    ))
+                }
+
+                if (hasSequentialChars(password)) {
+                    add(SecurityPattern(
+                        type = PatternType.SEQUENCE,
+                        confidence = 0.85,
+                        description = "Contains sequential characters"
+                    ))
+                }
             }
         }
-        
-        if (calculateEntropy(password) < 30.0) {
-            vulnerabilities.add(Vulnerability(VulnerabilityType.WEAK_ENTROPY, VulnerabilitySeverity.HIGH,
-                "Low entropy indicates predictable password", "Easily crackable by automated tools"))
+    }
+
+    private fun detectVulnerabilities(password: String): List<SecurityVulnerability> {
+        val vulnerabilities = mutableListOf<SecurityVulnerability>()
+
+        if (commonPasswords.contains(password.lowercase())) {
+            vulnerabilities.add(SecurityVulnerability(
+                type = VulnerabilityType.COMMON_PASSWORD,
+                severity = VulnerabilitySeverity.CRITICAL,
+                description = "This is a commonly used password"
+            ))
         }
-        
+
+        if (password.length < 8) {
+            vulnerabilities.add(SecurityVulnerability(
+                type = VulnerabilityType.WEAK_ENTROPY,
+                severity = VulnerabilitySeverity.HIGH,
+                description = "Password is too short (less than 8 characters)"
+            ))
+        }
+
+        val hasLower = password.any { it.isLowerCase() }
+        val hasUpper = password.any { it.isUpperCase() }
+        val hasDigit = password.any { it.isDigit() }
+        val hasSymbol = password.any { !it.isLetterOrDigit() }
+
+        val varietyCount = listOf(hasLower, hasUpper, hasDigit, hasSymbol).count { it }
+        if (varietyCount < 3) {
+            vulnerabilities.add(SecurityVulnerability(
+                type = VulnerabilityType.WEAK_ENTROPY,
+                severity = VulnerabilitySeverity.MEDIUM,
+                description = "Password lacks character variety"
+            ))
+        }
+
+        if (hasRepeatedChars(password)) {
+            vulnerabilities.add(SecurityVulnerability(
+                type = VulnerabilityType.REPEATED_CHARACTERS,
+                severity = VulnerabilitySeverity.MEDIUM,
+                description = "Contains repeated character sequences"
+            ))
+        }
+
         return vulnerabilities
     }
-    
-    private fun detectPatterns(password: String): List<DetectedPattern> {
-        val patterns = mutableListOf<DetectedPattern>()
-        
-        if (password.any { it.isUpperCase() } && password.any { it.isLowerCase() }) {
-            patterns.add(DetectedPattern(PatternType.MIXED_CASE, 1.0f, "Uses mixed case letters"))
-        }
-        
-        if (password.any { it.isDigit() }) {
-            patterns.add(DetectedPattern(PatternType.NUMERIC, 1.0f, "Contains numeric characters"))
-        }
-        
-        if (password.any { !it.isLetterOrDigit() }) {
-            patterns.add(DetectedPattern(PatternType.SPECIAL_CHARS, 1.0f, "Contains special characters"))
-        }
-        
-        return patterns
-    }
-    
+
     private fun calculateEntropy(password: String): Double {
-        if (password.isEmpty()) return 0.0
-        
         val charsetSize = when {
-            password.any { !it.isLetterOrDigit() } -> 94
-            password.any { it.isDigit() } && password.any { it.isLetter() } -> 62
-            password.any { it.isDigit() } -> 10
-            password.any { it.isUpperCase() } && password.any { it.isLowerCase() } -> 52
-            else -> 26
+            password.any { it.isLowerCase() } && password.any { it.isUpperCase() } &&
+            password.any { it.isDigit() } && password.any { !it.isLetterOrDigit() } -> 94
+            password.any { it.isLetter() } && password.any { it.isDigit() } &&
+            password.any { !it.isLetterOrDigit() } -> 84
+            password.any { it.isLetter() } && password.any { it.isDigit() } -> 62
+            password.any { it.isLetter() } -> 52
+            else -> 10
         }
-        
         return password.length * log2(charsetSize.toDouble())
     }
-    
-    private fun calculatePredictability(password: String): Float {
-        var score = 0f
-        if (commonPasswords.any { password.lowercase().contains(it) }) score += 0.4f
-        if (keyboardPatterns.any { password.lowercase().contains(it) }) score += 0.3f
-        if (password.matches(Regex(".*\\d{4}.*"))) score += 0.2f
-        return min(score, 1.0f)
-    }
-    
-    private fun calculateSecurityScore(password: String, vulnerabilities: List<Vulnerability>, entropy: Double, predictability: Float): Float {
-        var score = 1.0f
-        
+
+    private fun calculateSecurityScore(password: String, vulnerabilities: List<SecurityVulnerability>, entropy: Double): Int {
+        var score = 100
+
         vulnerabilities.forEach { vuln ->
             score -= when (vuln.severity) {
-                VulnerabilitySeverity.CRITICAL -> 0.4f
-                VulnerabilitySeverity.HIGH -> 0.25f
-                VulnerabilitySeverity.MEDIUM -> 0.15f
-                VulnerabilitySeverity.LOW -> 0.05f
+                VulnerabilitySeverity.CRITICAL -> 40
+                VulnerabilitySeverity.HIGH -> 25
+                VulnerabilitySeverity.MEDIUM -> 15
+                VulnerabilitySeverity.LOW -> 5
             }
         }
-        
-        val entropyScore = min(entropy / 60.0, 1.0).toFloat()
-        score = (score + entropyScore) / 2
-        score -= predictability * 0.3f
-        
-        return maxOf(score, 0.0f)
-    }
-    
-    private fun determineAIStrength(securityScore: Float): PasswordStrength {
-        return when {
-            securityScore >= 0.8f -> PasswordStrength.SECURE
-            securityScore >= 0.6f -> PasswordStrength.STRONG
-            securityScore >= 0.4f -> PasswordStrength.MEDIUM
-            else -> PasswordStrength.WEAK
+
+        score += when {
+            entropy >= 60 -> 10
+            entropy >= 40 -> 5
+            entropy < 25 -> -20
+            else -> 0
         }
+
+        return maxOf(0, minOf(100, score))
     }
-    
-    private fun generateRecommendations(password: String, vulnerabilities: List<Vulnerability>, patterns: List<DetectedPattern>): List<SecurityRecommendation> {
+
+    private fun generateRecommendations(vulnerabilities: List<SecurityVulnerability>, score: Int): List<SecurityRecommendation> {
         val recommendations = mutableListOf<SecurityRecommendation>()
-        
-        if (password.length < 12) {
-            recommendations.add(SecurityRecommendation(RecommendationType.LENGTH_INCREASE, RecommendationPriority.HIGH,
-                "Increase Password Length", "Use at least 12 characters for better security"))
+
+        if (score < 50) {
+            recommendations.add(SecurityRecommendation(
+                priority = RecommendationPriority.CRITICAL,
+                action = "Replace this password immediately",
+                reason = "Password security score is critically low"
+            ))
         }
-        
-        if (patterns.none { it.type == PatternType.SPECIAL_CHARS }) {
-            recommendations.add(SecurityRecommendation(RecommendationType.COMPLEXITY_BOOST, RecommendationPriority.MEDIUM,
-                "Add Special Characters", "Include symbols like !@#$% to increase complexity"))
+
+        vulnerabilities.forEach { vuln ->
+            when (vuln.type) {
+                VulnerabilityType.COMMON_PASSWORD -> recommendations.add(SecurityRecommendation(
+                    priority = RecommendationPriority.CRITICAL,
+                    action = "Use a unique, uncommon password",
+                    reason = "Common passwords are easily guessed"
+                ))
+                VulnerabilityType.WEAK_ENTROPY -> recommendations.add(SecurityRecommendation(
+                    priority = RecommendationPriority.HIGH,
+                    action = "Increase password length and character variety",
+                    reason = "More entropy makes passwords harder to crack"
+                ))
+                else -> {}
+            }
         }
-        
-        if (vulnerabilities.any { it.type == VulnerabilityType.DICTIONARY_WORD }) {
-            recommendations.add(SecurityRecommendation(RecommendationType.PATTERN_BREAK, RecommendationPriority.HIGH,
-                "Avoid Dictionary Words", "Replace common words with unique combinations"))
-        }
-        
+
         return recommendations
     }
-    
-    private fun optimizeGeneratedPassword(password: String): String = password
+
+    private fun estimateCrackTime(entropy: Double): String {
+        val seconds = 2.0.pow(entropy - 1) / 1_000_000_000
+        return when {
+            seconds < 60 -> "Less than a minute"
+            seconds < 3600 -> "${(seconds / 60).toInt()} minutes"
+            seconds < 86400 -> "${(seconds / 3600).toInt()} hours"
+            seconds < 31536000 -> "${(seconds / 86400).toInt()} days"
+            else -> "${(seconds / 31536000).toInt()} years"
+        }
+    }
+
+    private fun hasRepeatedChars(password: String): Boolean {
+        return password.windowed(3).any { window ->
+            window[0] == window[1] && window[1] == window[2]
+        }
+    }
+
+    private fun hasSequentialChars(password: String): Boolean {
+        return password.windowed(3).any { window ->
+            val chars = window.map { it.code }
+            chars[1] == chars[0] + 1 && chars[2] == chars[1] + 1
+        }
+    }
+
+    private fun optimizeGeneratedPassword(password: String): String {
+        // Simple optimization to avoid common patterns
+        return password.toCharArray().apply {
+            shuffle()
+        }.concatToString()
+    }
 }
